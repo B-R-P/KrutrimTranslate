@@ -1,37 +1,28 @@
 # Krutrim Translate
 
 ## Introduction 
-Our work is inspired by AI4Bharat's IndicTrans2. We utilized the IndicTrans2 training pipeline to develop a translation model with an increased context length, extending it from 256 to 4096. For training, we leveraged their dataset while also augmenting it with our own data to enhance performance. Their original model featured 18 encoder and 18 decoder layers, whereas we explored various architectures for both training and distillation.
+The Krutrim translate model translates the input text into one of the chosen Indic languages. To build Krutrim translate, we increased the context length of the popular IndicTrans2 translation model, extending it from 256 to 4096. For training, we leveraged the Bharat Parallel Corpus Collection (BPCC) while also augmenting it with our own data to enhance performance.
 
-The model provided in this repository is a distilled version with 6 encoder and 3 decoder layers, supporting translation in both directions: English to Indic and Indic to English. This architecture was chosen primarily because it achieved a 4x reduction in latency compared to the 18 encoder and 18 decoder model.
+Furthermore, to improve latency, we explored various architectures for both training and distillation. We are open-sourcing the distilled version with 6 encoder and 3 decoder layers, supporting translation in both directions: English to Indic and Indic to English. This architecture achieves at least a 4x reduction in latency compared to both the original IndicTrans2 and the distilled IndicTrans2 models, with minimal decline in performance.
 
-This repository is dedicated to model inference using the CTranslate2 format. Additionally, we also provide the model in Fairseq format. The choice of CTranslate2 for inference is due to its superior performance compared to Hugging Face (HF) and Fairseq formats.
+The following is the list of languages supported by our model: English, Bengali, Hindi, Kannada, Marathi, Malayalam, Gujarati, Telugu, and Tamil.
 
-Here is the list of languages supported by our model:
-- Bengali (ben_Beng)
-- Hindi (hin_Deva)
-- Kannada (kan_Knda)
-- Marathi (mar_Deva)
-- Malayalam (mal_Mlym)
-- Gujarati (guj_Gujr)
-- Punjabi (pan_Guru)
-- Telugu (tel_Telu)
-- Tamil (tam_Taml)
+## Key Features
+- Long context: up to 4096 tokens
+- Fast latency: 4X better than IndicTrans2 distilled models
+
 
 ## Model Summary
+Krutrim translation model is a transformer based sequence to sequence model, with six encoders and three decoders. The training process was conducted in four stages:
 
-The training process was conducted in four stages:
-
-1️⃣ Stage 1 – Initial training round\
-2️⃣ Stage 2 – Fine-tuning the model\
-3️⃣ Stage 3 – Back translation\
-4️⃣ Stage 4 – Distillation of the best model obtained in Stage 3
-
-For the English-to-Indic direction, only Stages 1, 2, and 4 were performed, while for Indic-to-English, all four stages were completed. For further details, please refer to the evaluation results section.
+Stage 1 – Initial training on a large transformer model (16 encoder and decoder layers)\
+Stage 2 – Fine-tuning the large transformer model\
+Stage 3 – Back translation on large transformer model\
+Stage 4 – Distillation of the large transformer model obtained in Stage 3
 
 ## Evaluation Results
 
-As we benchmarked our model against AI4Bharat's IndicTrans2, we evaluated its performance using the IN22-gen and IN22-conv datasets. The IndicTrans2 results were sourced from their research paper, where their model consists of 18 encoder and 18 decoder layers, whereas our model features a 6 encoder and 3 decoder architecture. Below, we present a comparison of the CHRF++ scores achieved by both models.
+As we benchmarked our model against IndicTrans2, we evaluated its performance using the IN22-gen and IN22-conv datasets. The IndicTrans2 results were sourced from their research paper. Below, we present a comparison of the CHRF++ scores achieved by both models.
 
 ### IN22-gen
 **English to Indic**
@@ -94,10 +85,16 @@ As we benchmarked our model against AI4Bharat's IndicTrans2, we evaluated its pe
 
 
 ## Installation Instructions
+Huggingface: https://huggingface.co/krutrim-ai-labs/KrutrimTranslate 
+Github: https://github.com/ola-krutrim/KrutrimTranslate 
+Krutrim Cloud API access: 
+
+Note: Make sure you have logged into Huggingface using your huggingface token.
+
 1. **Download model weights**  
-   Run the following script to download the required model weights:  
+   Run the following script to download the required model weights: 
    ```bash
-   ./static_data_builder.sh
+   source static_data_builder.sh
    ```
 
 2. **Set up the environment**  
@@ -107,11 +104,7 @@ As we benchmarked our model against AI4Bharat's IndicTrans2, we evaluated its pe
    ```
 
 3. **Usage**\
-   Follow example.ipynb to run inference using ctranslate2 model.
-
-
-## API Platform
+   Follow `example.ipynb` to run inference using ctranslate2 model.
 
 ## License
-## Citation
-## Contact
+This code repository and the model weights are licensed under the MIT License.
