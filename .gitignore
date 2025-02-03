@@ -1,0 +1,2 @@
+# Ignore Python cache files
+IndicTrans2/inference/__pycache__/
