@@ -85,22 +85,22 @@ As we benchmarked our model against IndicTrans2, we evaluated its performance us
 
 
 ## Installation Instructions
-Huggingface: https://huggingface.co/krutrim-ai-labs/KrutrimTranslate 
-Github: https://github.com/ola-krutrim/KrutrimTranslate 
+Huggingface: https://huggingface.co/krutrim-ai-labs/KrutrimTranslate \
+Github: https://github.com/ola-krutrim/KrutrimTranslate \
 Krutrim Cloud API access: 
 
 Note: Make sure you have logged into Huggingface using your huggingface token.
 
-1. **Download model weights**  
-   Run the following script to download the required model weights: 
-   ```bash
-   source static_data_builder.sh
-   ```
-
-2. **Set up the environment**  
+1. **Set up the environment**  
    Install the necessary dependencies:  
    ```bash
    source install.sh
+   ```
+
+2. **Download model weights**  
+   Run the following script to download the required model weights: 
+   ```bash
+   source static_data_builder.sh
    ```
 
 3. **Usage**\
