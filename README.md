@@ -111,7 +111,7 @@ This code repository and the model weights are licensed under the [Krutrim Commu
 ## Citation
 ```
 @misc{KrutrimTranslate2025,
-  author = {Kushagra Srivastava, Mohd Zaid, Sharath Adavanne},
+  author = {Kushagra Srivastava, Mohd Zaid, Pidathala Sowjanya, Sharath Adavanne},
   title = {Krutrim Translate},
   year = {2025},
   publisher = {GitHub},
