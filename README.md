@@ -106,4 +106,4 @@ Note: Make sure you have logged into Huggingface using your huggingface token.
    Follow `example.ipynb` to run inference using ctranslate2 model.
 
 ## License
-This code repository and the model weights are licensed under the MIT License.
+This code repository and the model weights are licensed under the [Krutrim Community License.](LICENSE.md)
