@@ -107,3 +107,13 @@ Note: Make sure you have logged into Huggingface using your huggingface token.
 
 ## License
 This code repository and the model weights are licensed under the [Krutrim Community License.](LICENSE.md)
+
+## Citation
+@misc{KrutrimTranslate2025,
+  author = {Kushagra Srivastava, Mohd Zaid, Sharath Adavanne},
+  title = {Krutrim Translate},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/ola-krutrim/KrutrimTranslate}}
+}
