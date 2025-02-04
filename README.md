@@ -15,7 +15,7 @@ The following is the list of languages supported by our model: English, Bengali,
 ## Model Summary
 Krutrim translation model is a transformer based sequence to sequence model, with six encoders and three decoders. The training process was conducted in four stages:
 
-Stage 1 – Initial training on a large transformer model (16 encoder and decoder layers)\
+Stage 1 – Initial training on a large transformer model (18 encoder and decoder layers)\
 Stage 2 – Fine-tuning the large transformer model\
 Stage 3 – Back translation on large transformer model\
 Stage 4 – Distillation of the large transformer model obtained in Stage 3
