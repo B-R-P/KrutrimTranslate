@@ -5,7 +5,7 @@ The Krutrim translate model translates the input text into one of the chosen Ind
 
 Furthermore, to improve latency, we explored various architectures for both training and distillation. We are open-sourcing the distilled version with 6 encoder and 3 decoder layers, supporting translation in both directions: English to Indic and Indic to English. This architecture achieves at least a 4x reduction in latency compared to both the original IndicTrans2 and the distilled IndicTrans2 models, with minimal decline in performance.
 
-The following is the list of languages supported by our model: English, Bengali, Hindi, Kannada, Marathi, Malayalam, Gujarati, Telugu, and Tamil.
+The following is the list of languages supported by our model: English, Hindi, Bengali, Kannada, Marathi, Malayalam, Gujarati, Punjabi, Telugu, and Tamil.
 
 ## Key Features
 - Long context: up to 4096 tokens
