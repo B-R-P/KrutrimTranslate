@@ -84,11 +84,9 @@ As we benchmarked our model against IndicTrans2, we evaluated its performance us
 
 
 ## Installation Instructions
-Huggingface: https://huggingface.co/krutrim-ai-labs/KrutrimTranslate \
-Github: https://github.com/ola-krutrim/KrutrimTranslate \
-Krutrim Cloud API access: 
-
 Note: Make sure you have logged into Huggingface using your huggingface token.
+
+**Miniconda**
 
 1. **Set up the environment**  
    Install the necessary dependencies:  
@@ -104,6 +102,11 @@ Note: Make sure you have logged into Huggingface using your huggingface token.
 
 3. **Usage**\
    Follow `example.ipynb` to run inference using ctranslate2 model.
+
+
+**Google Colab**
+
+Please upload the `colab_inference.ipynb` file to Google Colab and ensure that a GPU accelerator is enabled.
 
 ## License
 This code repository and the model weights are licensed under the [Krutrim Community License.](LICENSE.md)
