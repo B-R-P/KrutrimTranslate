@@ -158,11 +158,10 @@ class Model:
             self.translator = ctranslate2.Translator(
                 self.ckpt_dir,
                 device=device,
-                compute_type="int8_float16",
-                cpu_threads=8,
-                inter_threads=2,
-                intra_threads=4
-            )
+                compute_type="float16",
+                inter_threads=1,     # for CPU
+                intra_threads=2      # for CPU
+            )  # , compute_type="auto")
             self.translate_lines = self.ctranslate2_translate_lines
         elif model_type == "fairseq":
             from .custom_interactive import Translator
@@ -180,13 +179,15 @@ class Model:
         tokenized_sents = [x.strip().split(" ") for x in lines]
         translations = self.translator.translate_batch(
             tokenized_sents,
-            max_batch_size=16384,
-            batch_type="tokens",
+            beam_size=beam_len,
+            max_batch_size=131072,    # tune upward until you hit your GPU/CPU memory limit
+            batch_type="tokens",     # pack by token count
+            use_vmap=True,               # fuse beams into a single kernel
             max_input_length=4096,
             max_decoding_length=4096,
-            beam_size=beam_len,
-            vmap=True
+            asynchronous=True
         )
+        translations = [r.result() for r in translations]
         translations = [" ".join(x.hypotheses[0]) for x in translations]
         return translations
 
